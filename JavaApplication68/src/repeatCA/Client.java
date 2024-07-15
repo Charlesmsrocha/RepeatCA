@@ -2,7 +2,7 @@ package repeatCA;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+//import java.util.Random;
 
 /**
  *
@@ -18,35 +18,26 @@ public class Client {
         this.name = name;
         this.randomNumbers = new ArrayList<>();
         this.sum = 0;
-        generateRandomNumbers();
     }
-    
-    private void generateRandomNumbers() {
-        Random random = new Random();
-        while (sum < 1000000) {
-            int randomNumber = random.nextInt(12) + 1;
-            this.randomNumbers.add(randomNumber);
-            this.sum += randomNumber;
-        }
-    }
-    
-    public void addRandomNumber(int number) {
+       
+    public synchronized void addRandomNumber(int number) {
         this.randomNumbers.add(number);
+        this.sum += number;
     }
     
     public String getName() {
         return name;
     }
     
-    public List<Integer> getRandomNumbers() {
+    public synchronized List<Integer> getRandomNumbers() {
         return randomNumbers;
     }
     
-    public int getSum(){
+    public synchronized int getSum(){
         return sum;
     }
     
-    public String getRandomNumbersAsString() {
+    public synchronized String getRandomNumbersAsString() {
         StringBuilder numbersStr = new StringBuilder();
         int count = 0;
         for (int num : randomNumbers) {
