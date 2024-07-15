@@ -23,7 +23,7 @@ public class Client {
     
     private void generateRandomNumbers() {
         Random random = new Random();
-        while (sum < 100) {
+        while (sum < 1000000) {
             int randomNumber = random.nextInt(12) + 1;
             this.randomNumbers.add(randomNumber);
             this.sum += randomNumber;
@@ -47,9 +47,14 @@ public class Client {
     }
     
     public String getRandomNumbersAsString() {
-    StringBuilder numbersStr = new StringBuilder();
-    for (int num : randomNumbers) {
-        numbersStr.append(num).append(" ");
+        StringBuilder numbersStr = new StringBuilder();
+        int count = 0;
+        for (int num : randomNumbers) {
+            if (count > 0 && count % 58 == 0) {
+                numbersStr.append("\n");
+            }
+            numbersStr.append(num).append(" ");
+            count++;
         }
         return numbersStr.toString().trim();
     }

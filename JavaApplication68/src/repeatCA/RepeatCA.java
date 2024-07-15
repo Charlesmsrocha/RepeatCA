@@ -26,6 +26,7 @@ public class RepeatCA {
             for (Client client : clients) {
                 System.out.println(client.getName() + " - Random number: " + client.getRandomNumbersAsString());
                 System.out.println("Sum: " + client.getSum());
+                System.out.println("------------------------------------------------------------------------------------------------------------------------------------------");
             }
         
             scanner.close();
