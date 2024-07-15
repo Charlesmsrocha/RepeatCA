@@ -1,5 +1,7 @@
 package repeatCA;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 
@@ -11,24 +13,39 @@ import java.util.Random;
 
 public class Client {
     private String name;
-    private int randomNumber;
+    private List<Integer> randomNumbers;
     
     public Client(String name) {
         this.name = name;
-        this.randomNumber = generateRandomNumber();
+        this.randomNumbers = new ArrayList<>();
     }
     
-    private int generateRandomNumber() {
-        Random random = new Random();
-        return random.nextInt(12) +1; //random number from 1 to 12
+    public void addRandomNumber(int number) {
+        this.randomNumbers.add(number);
     }
     
-    public String getname() {
+    public int getSumOfRandomNumbers() {
+    int sum = 0;
+    for (int num : randomNumbers) {
+        sum += num;
+        }
+        return sum;
+    }
+    
+    public String getName() {
         return name;
     }
     
-    public int getRandomNumber() {
-        return randomNumber;
+    public List<Integer> getRandomNumbers() {
+        return randomNumbers;
+    }
+    
+    public String getRandomNumbersAsString() {
+    StringBuilder numbersStr = new StringBuilder();
+    for (int num : randomNumbers) {
+        numbersStr.append(num).append(" ");
+        }
+        return numbersStr.toString().trim();
     }
     
 }
