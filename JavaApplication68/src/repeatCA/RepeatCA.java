@@ -24,7 +24,7 @@ public class RepeatCA {
          //Displayng the names of the clients
             System.out.println("\nList of clients:");
             for (Client client : clients) {
-                System.out.println(client.getname());
+                System.out.println(client.getname() + " - Random number: " + client.getRandomNumber());
             }
         
             scanner.close();
