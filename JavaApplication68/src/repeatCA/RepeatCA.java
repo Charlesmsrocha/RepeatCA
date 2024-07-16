@@ -15,12 +15,13 @@ public class RepeatCA {
         List<Thread> threads = new ArrayList<>();
         
         //Getting the names
-        for (int i = 0; i<5;i++){
+        for (int i = 0;  i < 5; i++) {
             System.out.println("Enter the name of the client " + (i+1) +": ");
             String name = scanner.nextLine();
-            Client client = new Client(name);
-            clients.add(client);
-            
+            clients.add(new Client(name));
+        }
+        
+        for (Client client : clients) {
             ClientGenerator generator = new ClientGenerator(client);
             Thread thread = new Thread(generator);
             threads.add(thread);

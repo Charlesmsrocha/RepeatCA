@@ -2,7 +2,6 @@ package repeatCA;
 
 import java.util.ArrayList;
 import java.util.List;
-//import java.util.Random;
 
 /**
  *
@@ -28,11 +27,7 @@ public class Client {
     public String getName() {
         return name;
     }
-    
-    public synchronized List<Integer> getRandomNumbers() {
-        return randomNumbers;
-    }
-    
+        
     public synchronized int getSum(){
         return sum;
     }
