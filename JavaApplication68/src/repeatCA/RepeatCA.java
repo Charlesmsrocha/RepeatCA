@@ -20,7 +20,7 @@ public class RepeatCA {
 
             // Create clients and connect them to the server
             for (int i = 0; i < 5; i++) {
-                new Client(server);
+                new Client(server, i + 1);
             }
 
         } catch (Exception e) {
@@ -28,4 +28,3 @@ public class RepeatCA {
         }
     }
 }
-
